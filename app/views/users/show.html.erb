@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+
+<% for b in @bookings %>
+<table>
+<tr><th>Car</th><th>Make</th><th>Model</th><th>Start Date</th><th>End Date</th><th>Destination</th></tr>
+<tr><td><%= b.car.title %></td><td><%= b.car.make %></td><td><%= b.car.model %></td><td><%= b.start_date %></td><td><%= b.end_date %></td><td><%= b.destination %></td></tr>
+</table>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+

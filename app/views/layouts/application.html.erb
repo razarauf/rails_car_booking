@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookings</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="/bookings/blueprint/screen.css" type="text/css" media="screen, projection" />  
+  <link rel="stylesheet" href="/bookings/blueprint/print.css" type="text/css" media="print" /> 
+  <!--[if IE]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->  
+  <!-- Import fancy-type plugin. -->  
+  <link rel="stylesheet" href="/bookings/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
+</head>
+
+<body>
+<!-- HEADER -->  
+  <div class="container">  
+      <div align="center" id="header" class="span-24 last">
+        <h1 id="zombie_header"><img src="/img/header.jpg" width=80% alt="Book header image" id="header-image" /></h1>
+      </div>
+
+      <hr />
+ 
+  <div  class="span-24 last">
+   <div  class="span-11 last" >    
+    <form method="get" action="http://www.google.com/search">
+     <input type="text"   name="q" size="25" maxlength="255" value="" />
+     <input type="submit" value="Google" />
+    </form>
+   </div>
+ 
+      <div align="right" id="subheader" class="span-11 last" >
+        <h3 class="alt"><img src="/img/headerback.jpg"  height="65px" alt="Book header image" id="header-image2" /></h3>
+      </div>
+  </div>
+      <hr />
+      
+<!-- NAVIGATION BAR -->  
+    <div class="span-4">  
+      <div id="cssmenu">  
+            <ul>  
+              <li class='active'><div class="quiet"><a href="http://grp13.cs.uregina.ca/">Home</a></div></li>
+              <li><div class="quiet"><a href="http://grp13.cs.uregina.ca/bookings/users/">Users Page</a></div></li>  
+              <li><div class="quiet"><a href="http://grp13.cs.uregina.ca/bookings/bookings/">Bookings</a></div></li>  
+              <li><div class="quiet"><a href="http://grp13.cs.uregina.ca/bookings/cars/">Cars</a></div></li>
+              <li><div class="quiet"><a href="http://grp13.cs.uregina.ca/bookings/comments/">Comments</a></div></li>
+		<li><div class="quiet"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></div></li>
+
+            </ul>  
+        
+        </div>  
+    </div>
+  
+<!-- Content -->
+  
+  <div class="span-15 last prepend-1"> 
+  
+    <p align="center" style="background-color:#56aaff; color:white; border-radius:5px; border:1px solid #007fff;"><% if current_user %>
+    Currently logged in as "
+    <%= current_user.username %> "</p>
+      
+    <% end %>
+    
+    <%= yield %>
+
+  </div>
+
+  <br>
+  <hr />
+
+ 
+
+
+  <div class="footer">
+			Copyright &#64; 2013 <i>Group 13: Robert, Raza & Sean</i> &#124; All rights reserved.<br />
+			Last Updated: 08-12-2013 &#124; <a href="http://grp13.cs.uregina.ca/">Full Version</a><br />
+
+  </div>
+
+</body>
+  
+</html>

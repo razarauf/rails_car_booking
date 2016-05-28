@@ -1,0 +1,35 @@
+<h1 align="center">The greatest CAR collection<br>in the WORLD!!!</h1>
+<h2 align="center" style="color:red">Just pick one! Every car is AWESOME in here!</h2>
+<p align="center"><img src="/img/cars.jpg" width=590px alt="Book header image" id="header-image" /></p>
+
+<div class="CSSTableGenerator" >
+<table>
+  <tr>
+    <td>Id</td>
+    <td>Car</td>
+    <td>Make</td>
+    <td>Model</td>
+    <td>Description </td>
+    <td>Color</td>
+    <td>Booking</td>
+    <td>Comment</td>
+    <td>Profile</td>
+  </tr>
+
+<% @cars.each do |u| %>
+  <tr>
+    <td><%= u.id %></td>
+    <td><%= u.title %></td>
+    <td><%= u.make %></td>
+    <td><%= u.model %></td>
+    <td><%= u.description %></td>
+    <td><%= u.color %></td>
+    <td><%= link_to 'Create Booking', new_booking_path(:car_id =>u ) %> </td>
+    <td><%= link_to 'Create Comment', new_comment_path %> </td>
+    <td><%= link_to 'Car Profile', u %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+

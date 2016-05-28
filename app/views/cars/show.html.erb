@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <b>Car:</b>
+  <%= @car.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @car.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @car.price %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @car.color %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @car.body_type %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%= @car.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @car.model %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @car.model_year %>
+</p>
+
+<div class="CSSTableGenerator" >
+<table>
+<tr><td>User</td><td>Starting Location</td><td>Start Date</td><td>End Date</td><td>Destination</td></tr>
+
+<% for b in @bookings %>
+
+<tr><td><%= b.user.username %></td><td><%= b.user.address %></td><td><%= b.start_date %></td><td><%= b.end_date %></td><td><%= b.destination %></td></tr>
+<% end %>
+</table>
+</div>
+
+<br>
+
+<div class="CSSTableGenerator" >
+<table>
+  <tr>
+    <td>User</td>
+    <td>Comment Body</td>
+    <td>Date Posted</td>
+  </tr>
+
+<% for c in @comments %>
+  <tr>
+  <td> <%= c.user.username %>  </td>
+  <td> <%= c.body %> </td>
+  <td> <%= c.created_at %> </td>
+  </tr>
+
+<% end %>
+</table>
+</div>
+
+<br><br>
+
+<%= link_to 'Back', cars_path %>
+
+

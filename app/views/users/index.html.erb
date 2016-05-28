@@ -1,0 +1,34 @@
+<h1 align="center">Welcome!!!<br>The Carmunism Community<br>
+<img src="/img/community.jpg" width="590px" alt="User header image" id="header-image" />
+</h1>
+<div class="CSSTableGenerator" >
+<table>
+  <tr>
+    <td>Username</td>
+    <td>Name</td>
+    <td>Profile</td>
+    <td>Edit</td>
+    <td>Delete</td>
+    
+  </tr>
+
+<% @users.each do |u| %>
+  <tr>
+    <td><%= u.username %></td>
+    <td><%= u.first_name %> <%= u.last_name %></td>
+    <td><%= link_to 'User Profile', u %></td>
+    <% if u == current_user %>
+    <td><%= link_to 'Edit', edit_user_path(u) %></td>
+    <td><%= link_to 'Delete Account', u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% else %>
+      <td>User Only</td><td>User Only</td>
+    <% end %>
+   
+  </tr>
+<% end %>
+</table>
+</div>
+
+
+<br />
+
